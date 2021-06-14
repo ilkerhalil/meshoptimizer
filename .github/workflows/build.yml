@@ -31,38 +31,38 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  macos:
-    name: macos
-    runs-on: macos-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: configure and build shared library
-      run: |
-        cmake . -DCMAKE_BUILD_TYPE=Release -DMESHOPT_BUILD_SHARED_LIBS=ON
-        cmake --build .
-    - uses: actions/upload-artifact@v2
-      with:
-        name: meshoptimizer-osx
-        path: |
-          libmeshoptimizer.dylib
-          src/meshoptimizer.h
-        if-no-files-found: error
+  # macos:
+  #   name: macos
+  #   runs-on: macos-latest
+  #   steps:
+  #   - uses: actions/checkout@v2
+  #   - name: configure and build shared library
+  #     run: |
+  #       cmake . -DCMAKE_BUILD_TYPE=Release -DMESHOPT_BUILD_SHARED_LIBS=ON
+  #       cmake --build .
+  #   - uses: actions/upload-artifact@v2
+  #     with:
+  #       name: meshoptimizer-osx
+  #       path: |
+  #         libmeshoptimizer.dylib
+  #         src/meshoptimizer.h
+  #       if-no-files-found: error
 
-  windows:
-    runs-on: windows-latest
-    defaults:
-      run:
-        shell: cmd
-    steps:
-    - uses: actions/checkout@v2
-    - name: configure and build shared library
-      run: |
-        cmake . -DCMAKE_BUILD_TYPE=Release -DMESHOPT_BUILD_SHARED_LIBS=ON -DCMAKE_MSVC_RUNTIME_LIBRARY="MultiThreaded" -DCMAKE_CL_64=1 -A x64
-        cmake --build . -- -p:Configuration=Release -p:Platform=x64 -verbosity:minimal
-    - uses: actions/upload-artifact@v2
-      with:
-        name: meshoptimizer-win
-        path: |
-          Release/meshoptimizer.dll
-          src/meshoptimizer.h
-        if-no-files-found: error
+  # windows:
+  #   runs-on: windows-latest
+  #   defaults:
+  #     run:
+  #       shell: cmd
+  #   steps:
+  #   - uses: actions/checkout@v2
+  #   - name: configure and build shared library
+  #     run: |
+  #       cmake . -DCMAKE_BUILD_TYPE=Release -DMESHOPT_BUILD_SHARED_LIBS=ON -DCMAKE_MSVC_RUNTIME_LIBRARY="MultiThreaded" -DCMAKE_CL_64=1 -A x64
+  #       cmake --build . -- -p:Configuration=Release -p:Platform=x64 -verbosity:minimal
+  #   - uses: actions/upload-artifact@v2
+  #     with:
+  #       name: meshoptimizer-win
+  #       path: |
+  #         Release/meshoptimizer.dll
+  #         src/meshoptimizer.h
+  #       if-no-files-found: error
