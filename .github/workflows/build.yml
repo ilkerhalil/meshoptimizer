@@ -13,13 +13,23 @@ jobs:
       run: |
         cmake . -DCMAKE_BUILD_TYPE=Release -DMESHOPT_BUILD_SHARED_LIBS=ON
         cmake --build .
-    - uses: actions/upload-artifact@v2
+    # - uses: actions/upload-artifact@v2
+    #   with:
+    #     name: meshoptimizer-linux
+    #     path: |
+    #       libmeshoptimizer.so
+    #       src/meshoptimizer.h
+    #     if-no-files-found: error
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
       with:
         name: meshoptimizer-linux
-        path: |
-          libmeshoptimizer.so
+        files: |
+          libmeshoptimizer.dylib
           src/meshoptimizer.h
-        if-no-files-found: error
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   macos:
     name: macos
