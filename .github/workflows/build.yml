@@ -81,7 +81,11 @@ jobs:
         with:
           name: meshoptimizer-win
           path: artifacts/win
-
+      - name: Zip file
+        run: |
+          tar -zcvf artifacts/meshoptimizer-win.tar.gz artifacts/win
+          tar -zcvf artifacts/meshoptimizer-osx.tar.gz artifacts/osx
+          tar -zcvf artifacts/meshoptimizer-linux.tar.gz artifacts/linux
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
