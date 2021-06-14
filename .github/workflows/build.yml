@@ -26,7 +26,7 @@ jobs:
       with:
         name: meshoptimizer-linux
         files: |
-          libmeshoptimizer.dylib
+          libmeshoptimizer.so
           src/meshoptimizer.h
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
