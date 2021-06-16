@@ -86,7 +86,7 @@ jobs:
         run: |
           tar czf artifacts/meshoptimizer-win.tar.gz -C artifacts/win/Release meshoptimizer.dll
           tar czf artifacts/meshoptimizer-osx.tar.gz -C artifacts/osx libmeshoptimizer.dylib
-          tar czf artifacts/meshoptimizer-linux.tar.gz artifacts/linux libmeshoptimizer.so
+          tar czf artifacts/meshoptimizer-linux.tar.gz -C artifacts/linux libmeshoptimizer.so
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
