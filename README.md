@@ -1,4 +1,6 @@
-# 🐇 meshoptimizer [![Actions Status](https://github.com/zeux/meshoptimizer/workflows/build/badge.svg)](https://github.com/zeux/meshoptimizer/actions) [![codecov.io](https://codecov.io/github/zeux/meshoptimizer/coverage.svg?branch=master)](https://codecov.io/github/zeux/meshoptimizer?branch=master) ![MIT](https://img.shields.io/badge/license-MIT-blue.svg) [![GitHub](https://img.shields.io/badge/repo-github-green.svg)](https://github.com/zeux/meshoptimizer)
+# 🐇 meshoptimizer
+
+This fork of [zeux/meshoptimizer](https://github.com/zeux/meshoptimizer) is intended to remain similar to upstream, although we do not share zeux' passion for GLTF.
 
 ## Purpose
 
@@ -6,33 +8,9 @@ When a GPU renders triangle meshes, various stages of the GPU pipeline have to p
 
 The library provides a C and C++ interface for all algorithms; you can use it from C/C++ or from other languages via FFI (such as P/Invoke). If you want to use this library from Rust, you should use [meshopt crate](https://crates.io/crates/meshopt).
 
-[gltfpack](gltf), which is a tool that can automatically optimize glTF files, is developed and distributed alongside the library.
-
 ## Installing
 
-meshoptimizer is hosted on GitHub; you can download the latest release using git:
-
-```
-git clone -b v0.16 https://github.com/zeux/meshoptimizer.git
-```
-
-Alternatively you can [download the .zip archive from GitHub](https://github.com/zeux/meshoptimizer/archive/v0.15.zip).
-
-The library is also available as a package ([ArchLinux](https://aur.archlinux.org/packages/meshoptimizer/), [Debian](https://packages.debian.org/libmeshoptimizer), [Ubuntu](https://packages.ubuntu.com/libmeshoptimizer), [Vcpkg](https://github.com/microsoft/vcpkg/tree/master/ports/meshoptimizer)).
-
-### Installing gltfpack
-
-`gltfpack` is a CLI tool for optimizing meshes using meshoptimizer.
-
-You can download a pre-built binary for gltfpack on [Releases page](https://github.com/zeux/meshoptimizer/releases), or install [npm package](https://www.npmjs.com/package/gltfpack) as follows:
-
-```
-npm install -g gltfpack
-```
-
-You can also find prebuilt binaries of `gltfpack` built from master on [Actions page](https://github.com/zeux/meshoptimizer/actions).
-
-[Learn more about gltfpack](./gltf/README.md)
+You can download the library from the [Releases page](https://github.com/StirlingLabs/meshoptimizer/releases) to the right. v0.16.1 and greater have 64-bit binaries for the major platforms built automatically.
 
 ## Building
 
